@@ -1,0 +1,92 @@
+
+/**
+ *首页选材区展示作品标题 数据
+ * */ 
+function getlisteData(){
+    var arr = [
+                {                          
+                    id:1,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄1"
+                },
+                {                       
+                    id:2,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄2"
+                },
+                {                       
+                    id:3,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄3"
+                },
+                {                       
+                    id:4,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄4"
+                },
+                {                          
+                    id:5,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄5"
+                },
+                {                       
+                    id:6,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄6"
+                },
+                {                       
+                    id:7,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄7"
+                },
+                {                       
+                    id:8,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄8"
+                },
+                {                       
+                    id:9,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄9"
+                },
+                {                       
+                    id:10,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄10"
+                },
+                {                       
+                    id:11,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄11"
+                },{                       
+                    id:12,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄12"
+                },
+                {                       
+                    id:13,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄13"
+                },
+                {                       
+                    id:14,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄14"
+                },
+                {                       
+                    id:15,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄15"
+                },
+                {                       
+                    id:16,
+                    img:"../../images/productimg.jpg",
+                    title:"金线米黄16"
+                },
+                          
+              ]
+    return arr
+}
+module.exports = { 
+  getlisteData:getlisteData, 
+}

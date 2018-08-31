@@ -1,0 +1,28 @@
+/* pages/setting/setting.wxss */
+view{
+  box-sizing: border-box;
+}
+.setting-cell{
+  position: relative;
+  width: 100%;
+  height: 98rpx;
+  padding: 32rpx 29rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  font-size: 33rpx;
+  color: #333333;    
+}
+.setting-cell-left{
+  flex: 1;
+}
+.setting-cell-right{
+  position: relative;
+  text-align: right;
+}
+.setting-cell-right .setting-cell-icon{
+  width: 35rpx;
+  height: 35rpx;
+  vertical-align: middle;
+}

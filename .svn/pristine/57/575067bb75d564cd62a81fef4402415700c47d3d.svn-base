@@ -1,0 +1,27 @@
+/* component/share/share.wxss */
+
+.share-box {
+  position: fixed;
+  right: 30rpx;
+  bottom: 144rpx;
+  z-index: 9999;
+}
+
+.share-box image {
+  width: 104rpx;
+  height: 104rpx;
+  display: block;
+}
+
+.mt30 {
+  margin-top: 30rpx;
+}
+.share-btn{
+  width: 102rpx;
+  height: 102rpx;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+

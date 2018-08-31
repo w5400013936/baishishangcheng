@@ -1,0 +1,19 @@
+<!--pages/phoneVerification/phoneVerification.wxml-->
+<view class='main'>
+  <view class='top-tips'>请确保你的手机通畅，用于接收验证码短信</view>
+  <view class='input-box'>
+    <view class='input-account'>
+      <input type='text' placeholder='请输入手机号码'></input>
+    </view>
+    <view class='input-code'>
+      <view class='cell-left'>
+        <input type='text' placeholder='请输入验证码'></input>
+      </view>
+      <view class='cell-right'>
+        <view class='code-btn'>获取验证码</view>
+      </view>
+    </view>
+  </view>
+
+  <button class='submit-btn'>认证</button>
+</view>

@@ -1,0 +1,344 @@
+/**index.wxss**/
+page {
+  background-color: #f4f4f4;
+}
+.car-not {
+  padding-top: 231rpx;
+  text-align: center;
+}
+.car-not-img {
+  width: 275rpx;
+  height: 192rpx;
+}
+.car-not-text {
+  color: #999999;
+  font-size: 33rpx;
+  line-height: 122rpx;
+}
+.car-not-btn {
+  width: 211rpx;
+  height: 77rpx;
+  line-height: 77rpx;
+  padding: 0;
+  font-size: 33rpx;
+  color: #ffffff;
+  border: #fd970b;
+  background-color: #fd970b;
+}
+
+.car-item {
+  height: 187.5rpx;
+  padding: 23.4375rpx 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+} 
+.car-btn {
+  float: left;
+  width: 37.5rpx;
+  height: 37.5rpx;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid #a6a6a6;
+  margin-top: 75rpx;
+  margin-left: 23.4375rpx;
+}
+.car-active {
+  border: 1px solid #b99c50;
+  background-color: #b99c50;
+}
+.car-active::after {
+  top: 11.71875rpx;
+  left: 9.375rpx;
+  content: "";
+  width: 19.921875rpx;
+  height: 8.203125rpx;
+  border-bottom: 3.515625rpx solid #ffffff;
+  border-left: 3.515625rpx solid #ffffff;
+  position: absolute;
+  transform: rotate(-45deg);
+}
+.car-box {
+  height: 187.5rpx;
+  margin-left: 84.375rpx;
+}
+.goods-pic {
+  float: left;
+  width: 187.5rpx;
+  height: 187.5rpx;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size:187.5rpx 187.5rpx;
+}
+.goods-box {
+  height: 187.5rpx;
+  margin-left: 217.96875rpx;
+}
+.goods-del {
+  float: right;
+  font-size: 25.78125rpx;
+  padding: 0 18.75rpx;
+  border-left: 1px solid #a6a6a6;
+}
+.goods-tit {
+  height: 75rpx;
+  font-size: 25.78125rpx;
+  line-height: 37.5rpx;
+  margin-right: 117.1875rpx;
+  overflow: hidden;
+  white-space: normal;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  -webkit-box-orient:vertical;
+}
+.goods-text {
+  height: 37.5rpx;
+  color: #999999;
+  font-size: 25.78125rpx;
+  line-height: 37.5rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.goods-bottom {
+  padding-top: 18.75rpx;
+  overflow: hidden;
+  padding-right: 23.4375rpx;
+}
+.amount-btn {
+  float: right;
+}
+.amount-btn input,.amount-btn button {
+  color: #999999;
+  float: left;
+  width: 53.90625rpx;
+  height: 53.90625rpx;
+  text-align: center;
+  line-height: 53.90625rpx;
+  box-sizing: border-box;
+  border: 1px solid #f0f0f0;
+  background-color: #f5f5f5;
+}
+.amount-btn button {
+  border-radius: 0;
+}
+.amount-btn input {
+  font-size: 28.125rpx;
+  color: #333333;
+}
+.goods-price {
+  color: #ee4040;
+  font-size: 28.125rpx;
+  line-height: 53.90625rpx;
+}
+.car-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 103.125rpx;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: 10;
+}
+.car-bottom .car-btn {
+  margin-left: 23.4375rpx;
+  margin-top: 32.8125rpx;
+}
+.settlement-btn {
+  float: right;
+  color: #ffffff;
+  font-size: 32.8125rpx;
+  width: 234.375rpx;
+  height: 103.125rpx;
+  background-color: #c9151e;
+  border-radius: 0;
+  line-height: 103.125rpx;
+}
+.car-bottom-main {
+  margin-right: 234.375rpx;
+}
+.car-bottom-box {
+  line-height: 103.125rpx;
+}
+.car-bottom-box label {
+  font-size: 25rpx;
+  margin-left: 23.4375rpx;
+  color: #666;
+}
+.car-bottom-r {
+  float: right;
+  text-align: right;
+  padding: 16.40625rpx 0;
+  padding-right: 23.4375rpx;
+}
+.car-bottom-total {
+  font-size: 29rpx;
+  /* height: 35.15625rpx;
+  line-height: 35.15625rpx; */
+  display: inline-block;
+  color: #333;
+  margin-left: 25rpx;
+}
+.car-bottom-total label {
+  /* color: #ee4040; */
+  font-size: 29rpx;
+  margin-left: 10rpx;
+  color: #333;
+}
+.car-bottom-freight {
+  color: #999999;
+  font-size: 23.4375rpx;
+  height: 35.15625rpx;
+  line-height: 35.15625rpx;
+}
+
+.panel{
+  background-color: #fff;
+  margin-bottom: 25rpx;
+}
+.panel view{
+  box-sizing: border-box;
+}
+.panel-container{
+  display: flex;
+  align-items: center;
+  padding: 25rpx 29rpx;
+  position: relative;
+}
+.panel-ico{
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  margin-right: 21rpx;
+}
+.panel-del{
+  width: 34rpx;
+  height: 34rpx;
+  margin: 0;
+  /* vertical-align: top; */
+  position: absolute;
+  top: 28rpx;
+  right: 25rpx;
+}
+.panel-img{
+  width: 194rpx;
+  height: 194rpx;
+  vertical-align: middle;
+}
+.panel-left{
+  margin-right: 31rpx;
+}
+.panel-right{
+  flex: 1;
+  height: 194rpx;
+}
+.panel-name{
+  width: 373rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 33rpx;
+  margin-bottom: 15rpx;
+  display: inline-block;
+}
+.panel-spec{
+  font-size: 25rpx;
+  color: #999;
+  margin-bottom: 25rpx;
+}
+.panel-oldPrice{
+  color: #999;
+  font-size: 30rpx;
+  text-decoration: line-through;
+}
+.panel-price{
+  font-size: 30rpx;
+  color: #f23030;
+}
+
+.panel-title{
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  padding:25rpx;
+  position: relative;
+}
+.panel-title-left{
+  flex: 1;
+}
+.panel-title-text{
+  display: inline-block;
+}
+.panel-content{
+  height: 196rpx;
+  padding:25rpx 29rpx 25rpx 179rpx;
+  position: relative;
+}
+.panel-content-img{
+  width: 146rpx;
+  height: 146rpx;
+}
+.panel-content-right{
+  display: inline-block;
+  margin-left: 20rpx;
+  vertical-align: top;
+  position: relative;
+}
+.panel-content-name{
+  font-size: 33rpx;
+  color: #000000;
+  line-height: 33rpx; 
+  text-overflow: ellipsis;
+  width: 370rpx;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.panel-content-price{
+  margin-top: 90rpx;
+  font-size:30rpx;
+  color: #f23030;
+  line-height: 18rpx;
+}
+.panel-content-price text{
+  font-size: 25rpx;
+}
+.panel-content-num{
+  position: absolute;
+  right: 0;
+  bottom: -2rpx;
+  font-size:21rpx;
+  color: #999;
+}
+.panel-content-num text{
+  color: #f23030;
+}
+.panel-footer{
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 35rpx 0 129rpx;
+}
+.panel-footer-left{
+  flex: 1;
+}
+
+.input-p{
+  width: 200rpx; 
+  border:solid 1px #ddd; 
+  border-radius: 5px; 
+  overflow: hidden; 
+  line-height: 50rpx; 
+  position: relative;
+}
+
+.panel-container .input-p{ 
+  position: absolute;
+  bottom: 25rpx;
+  right: 35rpx;
+}
+.input-btn{ width: 30%; text-align: center; position: absolute; top: 0px; bottom: 0px; line-height: 50rpx; height: 50rpx;}.input-btn_gray{color: #d9d9d9;}
+.input-add{ left: 0px;}
+.input-minus{ right: 0px;}
+.input-number{ width:40%; border-left: solid 1px #ddd; border-right: solid 1px #ddd; margin: 0 auto; text-align: center;line-height: 50rpx;}

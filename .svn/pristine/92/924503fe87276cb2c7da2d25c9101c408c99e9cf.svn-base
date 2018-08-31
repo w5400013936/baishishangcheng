@@ -1,0 +1,217 @@
+<!--pages/orderConfirm/orderConfirm.wxml-->
+<!--pages/myOrderDetail/myOrderDetail.wxml-->
+<block wx:if="{{!isfail}}">
+  <view class='container-con' style='padding-bottom:122rpx;'>
+    <view class='addList-header'>
+      <view class='addList-content'>
+        <block wx:if="{{address}}">
+          <view bindtap='chooseAddress'>
+            <view class='userInfo'>
+              <text>{{address.contact}}</text>
+              <text style='margin-left:44rpx;'>{{address.mobile}}</text>
+              <block wx:if="{{address.isdefault}}">
+                <view class='default-add'>默认</view>
+              </block>
+            </view>
+
+            <view class='address'>
+              <image src='/images/location.png'></image>
+              <text>{{address.proName}}{{address.cityName}}{{address.townName}}{{address.dress}}</text>
+            </view>
+          </view>
+
+
+        </block>
+        <block wx:else>
+          <view class='default-tip' bindtap='addAddress'>
+            您还没有默认的收货地址，点此设置收货地址
+            <image class='default-tip-img right-arrow' src='/images/right.png'></image>
+          </view>
+        </block>
+
+
+
+      </view>
+    </view>
+
+    <view class="panel">
+
+      <block wx:for="{{adapter}}" wx:key="{{indexItem}}">
+        <block wx:if="{{item.itemType==0}}">
+          <view class='panel-container'>
+            <view class='panel-content'>
+              <image class='panel-content-img' src='{{item.dir+item.imgName}}'></image>
+              <view class='panel-content-right'>
+                <view class='panel-content-title'>{{item.itemName}}</view>
+                <view class='panel-content-subTitle'>
+                  <text>{{item.perty}}</text>
+                </view>
+                <view class='panel-content-price'>
+                  <text>￥</text>
+                  <text style='font-size:33rpx;'>{{item.price}}</text>
+                  <view class='panel-content-oldPrice'>
+                    <text>{{viplv>0?"￥":""}}</text>
+                    <text style='font-size:33rpx;text-decoration: line-through;'>{{viplv>0?item.oriprice:""}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='panel-content-num'>
+                <text style='color:#999999;margin-right:13rpx;'>数量：</text>
+                <text style='color:#f23030;'>{{item.buyCount}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+
+
+        <block wx:if="{{item.itemType==5}}">
+          <view class='panel-sec panel-container'>
+            <view class='panel-con-title'>【套餐】{{item.perty}}</view>
+            <block wx:for="{{item.Pack}}" wx:key="{{indexItem}}" wx:for-item="itemx">
+              <view class='panel-content'>
+                <image class='panel-content-img' src='{{itemx.dir+itemx.imgName}}'></image>
+                <view class='panel-content-right'>
+                  <view class='panel-content-title'>{{itemx.itemName}}</view>
+                  <view class='panel-content-subTitle'>
+                    <text>{{itemx.perty}}</text>
+                  </view>
+                  <view class='panel-content-price'>
+                    <text>￥</text>
+                    <text style='font-size:33rpx;'>{{itemx.price}}</text>
+                  </view>
+                </view>
+                <view class='panel-content-num'>
+                  <text style='color:#999999;margin-right:13rpx;'>数量：</text>
+                  <text style='color:#f23030;'>{{itemx.num}}</text>
+                </view>
+              </view>
+            </block>
+            <view class='panel-con-footer'>
+              套餐价：{{item.price}}×{{item.buyCount}}
+            </view>
+          </view>
+        </block>
+      </block>
+    </view>
+
+
+    <!-- <navigator url='/pages/payment/payment'>
+      <view class='payment-cell'>
+        <view class='payment-cell-con'>
+          <view class='payment-cell-left'>
+            <view class='payment-cell-text'>支付方式</view>
+          </view>
+          <view class='payment-cell-right'>
+            <label class='curPayment'>在线支付</label>
+            <image class='right-arrow' src='/images/right.png'></image>
+          </view>
+        </view>
+
+        <view class='payment-cell-count'>
+          <text>（暂时支持支付宝和微信付款）</text>
+        </view>
+      </view>
+    </navigator> -->
+
+    <view class='deliver'>
+      <view class='deliver-title'>送货方式</view>
+      <view class='deliver-content'>
+        <view class='deliver-cell' bindtap='songHuo' data-type='{{0}}'>
+          <block wx:if="{{self==1}}">
+            <image class='deliver-img' src='/images/circle.png'></image>
+          </block>
+          <block wx:else>
+            <image class='deliver-img' src='/images/choosed.png'></image>
+          </block>
+          <text class='deliver-text'>快递或物流</text>
+          <text class='deliver-tip'>我们安排快递公司或物流公司送货</text>
+        </view>
+
+        <view class='deliver-cell' bindtap='songHuo' data-type='{{1}}'>
+          <block wx:if="{{self==0}}">
+            <image class='deliver-img' src='/images/circle.png'></image>
+          </block>
+          <block wx:else>
+            <image class='deliver-img' src='/images/choosed.png'></image>
+          </block>
+          <text class='deliver-text'>自提</text>
+          <text class='deliver-tip'>自己提货</text>
+        </view>
+      </view>
+    </view>
+
+    <view bindtap='faPiaoTap'>
+      <view class='invoice-cell'>
+        <view class='invoice-cell-left'>
+          <view class='invoice-cell-text'>发票</view>
+        </view>
+        <view class='invoice-cell-right'>
+          <!-- <label class='cF23030'>电子</label> -->
+          <block wx:if="{{faPiao}}">
+            <block wx:if="{{faPiao.gs==0}}">
+              <label>开发票(个人){{faPiao.invname}}</label>
+            </block>
+            <block wx:else>
+              <label>开发票(公司){{faPiao.invname}}</label>
+            </block>
+          </block>
+          <block wx:else>
+            <label>不开发票</label>
+          </block>
+          <image class='right-arrow' src='/images/right.png'></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class='freight-cell'>
+      <view class='freight-cell-left'>
+        <view class='freight-cell-text'>运费</view>
+      </view>
+      <view class='freight-cell-right'>
+        <text>￥</text>
+        <text>0.00</text>
+      </view>
+    </view> -->
+
+    <!-- <view class='totalPrice-cell'>
+      <view class='totalPrice-cell-con'>
+        <view class='totalPrice-cell-left'>
+          <view class='totalPrice-cell-text'>总商品金额</view>
+        </view>
+        <view class='totalPrice-cell-right'>
+          <text>￥</text>
+          <text>5000.00</text>
+        </view>
+      </view> -->
+
+    <!-- <view class='totalPrice-cell-count'>
+      <text>（</text>
+      <text>2</text>
+      <text>件商品）</text>
+    </view>
+  </view> -->
+
+    <view class='freight-cell'>
+      <view class='freight-cell-left remark'>
+        <view class='freight-cell-text'>备注</view>
+      </view>
+      <view class='freight-cell-right remark'>
+        <input placeholder='输入您的留言内容' placeholder-style="color:#dddddd;" value='{{mark}}' bindinput='markInput' />
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{btnVisible}}">
+
+    <view class='bottom-box'>
+      <view class='bottom-box-main'>
+        <text class='f25'>需付款：￥{{price}}</text>
+        <block wx:if="{{address}}">
+          <text class='f22'>{{yunFei}}</text>
+        </block>
+      </view>
+      <view class='bottom-box-btn' bindtap='liJiXiaDan'>立即下单</view>
+    </view>
+  </block>
+</block>
+<block wx:else>
+</block>

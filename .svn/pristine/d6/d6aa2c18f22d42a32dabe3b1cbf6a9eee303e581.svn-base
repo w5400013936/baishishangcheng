@@ -1,0 +1,36 @@
+<!--pages/myBill/myBill.wxml-->
+<view>
+  <block wx:for="{{rows}}" wx:key="{{index}}">
+    <navigator url='/pages/myBillDetail/myBillDetail?keyid={{item.keyID}}'>
+      <view class='billList'>
+        <view class='billList-content'>
+          <view class='billList-content-right'>
+            <view class='billList-content-title'>订单编号：{{item.orderNo}}</view>
+            <view class='billList-content-date'>
+              状态：
+              <block wx:if="{{item.orderState==-1}}">
+                <view class='cF23030 dib'>未支付</view>
+              </block>
+              <block wx:if="{{item.orderState==0}}">
+                <view class='cF23030 dib'>未支付</view>
+              </block>
+              <block wx:if="{{item.orderState==1}}">
+                <view class='cF23030 dib'>已支付</view>
+              </block>
+              <block wx:if="{{item.orderState==2}}">
+                <view class='cF23030 dib'>已支付</view>
+              </block>
+              <block wx:if="{{item.orderState==3}}">
+                <view class='cF23030 dib'>已支付</view>
+              </block>
+              <block wx:if="{{item.orderState==4}}">
+                <view class='cF23030 dib'>已支付</view>
+              </block>
+            </view>
+          </view>
+          <view class='billList-content-value'>{{item.ordercoin}}</view>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>

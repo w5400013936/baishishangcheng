@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<view class="header">
+  <view class="searchbox" bindtap='searchlink'>
+    <icon type="search" size="16" color="#fff" style="float:left;margin:17rpx 15rpx 0 20rpx;"></icon>
+    <text>好石材搜出来</text>
+    <image class='search-img' src='/images/scan.png' catchtap='scanTap'></image>
+  </view>
+</view>
+<view class="h100"></view>
+<view class="container ">
+  <swiper class="swiper-box" indicator-dots='true' indicator-color='#676767' indicator-active-color='red' autoplay='true' interval='5000' duration='500'>
+    <block wx:for="{{movies}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item.dir}}{{item.AdImgTwo}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--选材区滚动-->
+  <view class="choose-box">
+    <block wx:for="{{navTopItems}}" wx:key="item.id">
+      <view class="nav_top_items" bindtap="Jumptosort" data-linkid="{{item.id}}" data-pid="{{item.PID}}" data-navname="{{item.title}}">
+        <image src="{{item.icon}}" mode="aspectFill"></image>
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+  <!--热线咨询-->
+  <view class="tel">
+    <image src="../../images/phone-img.png"></image>
+    <view class="phone" bindtap="call_tel" data-phone="{{tel}}">400-100-9093 </view>
+  </view>
+  <!--4分类个产品的展示-->
+  <block wx:for="{{bigclassname}}" wx:if="{{item.PID==0}}" wx:key="{{index}}">
+    <view class="list-box">
+      <view class='box'>
+        <view class="title">
+          <text class="titlname c333">{{item.serName}} | {{item.nameEn}}</text>
+          <text class="c999" bindtap="Jumptosort" data-linkid="{{item.ID}}" data-pid="{{item.PID}}" data-navname="{{item.serName}}">更多</text>
+        </view>
+        <view class="product-list">
+          <block wx:for="{{item.topItem}}" wx:for-item="items" wx:key="{{index}}">
+            <view class="wb50" data-id="{{items.ID}}" bindtap="linkdetail">
+              <view class='bgImg'>
+                <image src="{{bgImg}}" mode="scaleToFill" />
+              </view>
+              <image src="{{items.dir}}{{items.imgName}}" mode="aspectFill" style='position:absolute; z-index:2; top:0; left:0; '></image>
+              <view class="o-hidden">
+                <view class='left'>
+                  <text class='f21'>￥</text>
+                  <text class='f33'>{{items.price}}</text>
+                </view>
+                <view class='right'>
+                  <text>{{items.prvName}}</text>
+                  <text>{{items.cityName}}</text>
+                </view>
+              </view>
+              <view class='title'>{{items.itemName}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<block wx:if="{{completeMore}}">
+  <view class="load-content">
+    没有了~~
+  </view>
+</block>
+<share></share>

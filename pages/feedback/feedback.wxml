@@ -1,0 +1,22 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='container-con' style='backgroud-color:#fff;height:100%;'>
+  <image class='feedback-img' src='/images/feedback.png'></image>
+  <view class='feedback-con'>
+    <view class='feedback-title'>反馈问题类型</view>
+    <view class='feedback-classify'>
+      <view wx:for="{{classifyList}}" wx:key="index" class='classify-btn {{item.active?"active":""}}'
+        data-index='{{item.index}}' data-active='{{item.active}}' bindtap='handleClassifyChange'>{{item.name}}</view>
+      <!-- <view class='classify-btn active'>功能异常</view>
+      <view class='classify-btn'>体验问题</view>
+      <view class='classify-btn'>新的建议</view>
+      <view class='classify-btn'>其它</view> -->
+    </view>
+    <textarea class='feedback-text' 
+      placeholder='选择您反馈的问题类型，帮助我们更快地处理您的反馈' 
+      placeholder-class='feedback-placeholder' value='{{feed}}' bindinput='feedInput'>
+    </textarea>
+    <view class='feedback-btn' bindtap='tiJiao'>
+      提交反馈
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "zan-cell": "/zanUI/cell/index",
+    "zan-cell-group": "/zanUI/cell-group/index",
+    "confirm": "/component/confirm/confirm"
+  }
+}

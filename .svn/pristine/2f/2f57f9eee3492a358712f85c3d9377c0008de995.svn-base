@@ -1,0 +1,78 @@
+<!--pages/addAddress/addAddress.wxml-->
+<view class='container-con'>
+  <view class='add-con'>
+    <view class='add-cell'>
+      <view class='add-cell-left'>
+        <view class='add-table-cell'>
+          <text decode='{{true}}'>收&ensp;货&ensp;人：</text>
+        </view>
+        <view class='add-table-cell'>
+          <input type='text' value='{{bean.contact}}' placeholder='请输入姓名' bindinput="contactInput" />
+        </view>
+
+      </view>
+      <view class='add-cell-right' bindtap='defultTap'>
+        <block wx:if="{{bean.isdefault}}">
+          <image class='checkbox-img' src='/images/choosed.png'></image>
+        </block>
+        <block wx:else>
+          <image class='checkbox-img' src='/images/circle.png'></image>
+        </block>
+        默认地址
+      </view>
+    </view>
+
+    <view class='add-cell'>
+      <view class='add-cell-left'>
+        <view class='add-table-cell'>
+          <text>手机号码：</text>
+        </view>
+        <view class='add-table-cell'>
+          <input type='numbe' value='{{bean.mobile}}' placeholder='请输入手机号码' bindinput='mobileInput' maxlength="11" />
+        </view>
+      </view>
+    </view>
+
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class='add-cell'>
+        <view class='add-cell-left'>
+          <view class='add-table-cell'>
+            <text>所在区域：</text>
+          </view>
+          <view class='add-table-cell'>
+            <text>{{bean.proName}} {{bean.cityName}} {{bean.townName}}</text>
+          </view>
+        </view>
+        <view class='add-cell-right'>
+          <image src='/images/right.png'></image>
+        </view>
+      </view>
+    </picker>
+    <view class='add-cell cell-text'>
+      <view class='add-cell-left'>
+        <view class='add-table-cell' style='vertical-align:top;'>
+          <text>详细地址：</text>
+        </view>
+        <view class='add-table-cell'>
+          <block wx:if="{{ios}}">
+            <view style='padding-top:15rpx;'>
+              <textarea placeholder='街道，楼牌等' placeholder-class='add-cell-placeholder' value='{{bean.dress}}' bindinput='dressInput'>
+              </textarea>
+            </view>
+          </block>
+          <block wx:else>
+            <view style='padding-top:31rpx;'>
+              <textarea placeholder='街道，楼牌等' placeholder-class='add-cell-placeholder' value='{{bean.dress}}' bindinput='dressInput'>
+              </textarea>
+            </view>
+
+          </block>
+
+          <!-- <input placeholder='街道，楼牌等' placeholder-class='add-cell-placeholder'/> -->
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='add-btn' bindtap='baoCun'>保存并使用</view>
+</view>

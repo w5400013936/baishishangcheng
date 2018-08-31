@@ -1,0 +1,13 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<view class='logo-container'>
+  <image class='logo' src='/images/logo.png'></image>
+  <view class='version'>V2017.12.26</view>
+</view>
+<view class='setting-cell'>
+  <view class='setting-cell-left'>
+    <view class='setting-cell-text'>用户协议</view>
+  </view>
+  <view class='setting-cell-right'>
+    <image class='setting-cell-icon' src='/images/right.png'></image>
+  </view>
+</view>

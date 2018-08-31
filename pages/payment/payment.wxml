@@ -1,0 +1,59 @@
+<!--pages/payment/payment.wxml-->
+<view class='container-con' style='margin-bottom:121rpx;'>
+  <view class='payTime'>
+    <view class='payTime-text'>订单支付金额</view>
+    <view class='payTime-num'>{{createOrder.data}}</view>
+  </view>
+  <!-- <view class='orderPrice-cell'>
+    <view class='orderPrice-cell-left'>
+      <view class='orderPrice-cell-text'>订单支付金额</view>
+    </view>
+    <view class='orderPrice-cell-right'>
+      <text>￥</text>
+      <text>0.00</text>
+    </view>
+  </view> -->
+
+  <view class='payment-select'>
+    <view class='payment-select-header'>
+      选择支付方式
+    </view>
+
+    <view class='payment-select-cell' wx:for='{{paymentList}}' wx:key='index' data-index='{{item.index}}' data-selected='{{item.selected}}' bindtap='changePayment'>
+      <view class='payment-select-cell-left'>
+        <image src='{{item.imgUrl}}'></image>
+        <label>{{item.name}}</label>
+      </view>
+      <view class='payment-select-cell-right'>
+        <image src='{{item.selected?"/images/choosed.png":"/images/circle.png"}}'></image>
+      </view>
+    </view>
+
+    <!-- <view class='payment-select-cell'>
+      <view class='payment-select-cell-left'>
+        <image src='/images/wechat.png'></image>
+        <label>微信付款</label>
+      </view>
+      <view class='payment-select-cell-right'>
+        <image src='/images/circle.png' bindtap='changePayment'></image>
+      </view>
+    </view>
+    <view class='payment-select-cell'>
+      <view class='payment-select-cell-left'>
+        <image src='/images/creditCard.png'></image>
+        <label>前台付款</label>
+      </view>
+      <view class='payment-select-cell-right'>
+        <image src='/images/circle.png' bindtap='changePayment'></image>
+      </view>
+    </view>   -->
+
+  </view>
+</view>
+
+<view class='bottom-box' bindtap='payNow'>
+  <view class='bottom-box-con'>
+    <view class='bottom-box-text'>立即支付</view>
+  </view>
+</view>
+<toast show='{{toastShow}}' title='支付成功' message='恭喜，您的订单已付款成功！' price='{{needPay}}' button='返回查看' url='/pages/myOrderDetail/myOrderDetail?id={{createOrder.orderkey}}'></toast>

@@ -1,0 +1,112 @@
+<!--pages/myOrderRate/myOrderRate.wxml-->
+<view class='container-con' style='margin-bottom:201rpx;'>
+  <!-- <view class="panel">
+    <view class='panel-content'>
+      <image class='panel-content-img' src='/images/img1.png'></image>
+      <view class='panel-content-right'>
+        <view class='panel-content-title'>BG-001</view>
+        <view class='panel-content-subTitle'>
+          <text>规格： </text>
+          <text>600x600x14mm</text>
+        </view>
+        <view class='panel-content-price'>
+          <text>￥</text>
+          <text style='font-size:33rpx;'>8000</text>.
+          <text>00</text>
+        </view>
+      </view>
+      <view class='panel-content-num'>
+        <text style='color:#999999;margin-right:13rpx;'>数量：</text>
+        <text style='color:#f23030;'>5</text>
+      </view>
+    </view>
+
+    <view class='panel-bottom-rate'>
+      <view class='rate-btn'>晒图评价</view>
+    </view>
+  </view> -->
+
+  <view class="panel">
+    <!-- <view class='panel-content'>
+      <image class='panel-content-img' src='/images/img1.png'></image>
+      <view class='panel-content-right'>
+        <view class='panel-content-title'>BG-001</view>
+        <view class='panel-content-subTitle'>
+          <text>规格： </text>
+          <text>600x600x14mm</text>
+        </view>
+        <view class='panel-content-price'>
+          <text>￥</text>
+          <text style='font-size:33rpx;'>8000</text>.
+          <text>00</text>
+        </view>
+      </view>
+      <view class='panel-content-num'>
+        <text style='color:#999999;margin-right:13rpx;'>数量：</text>
+        <text style='color:#f23030;'>5</text>
+      </view>
+    </view> -->
+
+    <view class='panel-comment'>
+      <textarea class='panel-comment-text' placeholder='宝贝满足你的期待吗？说说你的心得，分享给想买的他们吧' placeholder-class='panel-comment-ph' bindinput='desInput' value='{{des}}'>
+      </textarea>
+      <!-- <view>
+        <image class='upload-btn' src='/images/upload-pic.png'></image>
+      </view> -->
+    </view>
+
+    <!-- <view class='panel-anonymous'>
+      <view class='panel-anonymous-left'>
+        <image src='/images/choosed.png'></image>
+        <view class='text-justify'>匿名</view>
+      </view>
+
+      <view class='panel-anonymous-right'>
+        你写的评价会以匿名的形式展现
+      </view>
+    </view> -->
+  </view>
+
+  <view class='panel'>
+    <view class='panel-star'>
+
+      <view class='panel-star-content'>
+        <view class='panel-star-left'>商品评分</view>
+        <view class='panel-star-right'>
+          <image src='{{starSP>=1?"/images/star.png":"/images/gray-star.png"}}' bindtap='startSPTap' data-star='1'></image>
+          <image src='{{starSP>=2?"/images/star.png":"/images/gray-star.png"}}' bindtap='startSPTap' data-star='2'></image>
+          <image src='{{starSP>=3?"/images/star.png":"/images/gray-star.png"}}' bindtap='startSPTap' data-star='3'></image>
+          <image src='{{starSP>=4?"/images/star.png":"/images/gray-star.png"}}' bindtap='startSPTap' data-star='4'></image>
+          <image src='{{starSP>=5?"/images/star.png":"/images/gray-star.png"}}' bindtap='startSPTap' data-star='5'></image>
+        </view>
+      </view>
+
+      <view class='panel-star-content'>
+        <view class='panel-star-left'>服务评分</view>
+        <view class='panel-star-right'>
+          <image src='{{starFW>=1?"/images/star.png":"/images/gray-star.png"}}' bindtap='startFWTap' data-star='1'></image>
+          <image src='{{starFW>=2?"/images/star.png":"/images/gray-star.png"}}' bindtap='startFWTap' data-star='2'></image>
+          <image src='{{starFW>=3?"/images/star.png":"/images/gray-star.png"}}' bindtap='startFWTap' data-star='3'></image>
+          <image src='{{starFW>=4?"/images/star.png":"/images/gray-star.png"}}' bindtap='startFWTap' data-star='4'></image>
+          <image src='{{starFW>=5?"/images/star.png":"/images/gray-star.png"}}' bindtap='startFWTap' data-star='5'></image>
+        </view>
+      </view>
+
+      <view class='panel-star-content'>
+        <view class='panel-star-left'>物流评分</view>
+        <view class='panel-star-right'>
+          <image src='{{starWL>=1?"/images/star.png":"/images/gray-star.png"}}' bindtap='startWLTap' data-star='1'></image>
+          <image src='{{starWL>=2?"/images/star.png":"/images/gray-star.png"}}' bindtap='startWLTap' data-star='2'></image>
+          <image src='{{starWL>=3?"/images/star.png":"/images/gray-star.png"}}' bindtap='startWLTap' data-star='3'></image>
+          <image src='{{starWL>=4?"/images/star.png":"/images/gray-star.png"}}' bindtap='startWLTap' data-star='4'></image>
+          <image src='{{starWL>=5?"/images/star.png":"/images/gray-star.png"}}' bindtap='startWLTap' data-star='5'></image>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class='bottom-box' bindtap='tiJiao'>
+  提交评价
+</view>

@@ -1,0 +1,32 @@
+<view class="product-list">
+  <block wx:for="{{productlist}}" wx:key="{{index}}">
+    <view class="wb50" wx:for="{{item.rows}}" wx:key="{{index}}" wx:for-item="items" bindtap='linkdetail' data-id="{{items.ID}}">
+      <view class='bgImg'>
+        <image src="{{bgImg}}" mode="scaleToFill" />
+      </view>
+      <image src="{{items.dir}}{{items.imgName}}" mode="aspectFill" style='position:absolute; z-index:2; top:0; left:0; '></image>
+      <view class="o-hidden">
+        <view class='left'>
+          <text class='f21'>￥</text>
+          <text class='f33'>{{items.price}}</text>
+        </view>
+        <view class='right'>
+          <text>{{items.prvName}}</text>
+          <text>{{items.cityName}}</text>
+        </view>
+      </view>
+      <view class='title'>{{items.itemName}}</view>
+    </view>
+  </block>
+</view>
+
+<block wx:if="{{completeMore}}">
+  <view class="load-content">
+    没有了~~
+  </view>
+</block>
+<block wx:if="{{dataNull}}">
+  <view class="dataNull">
+    <image src='../../images/null.png'></image>
+  </view>
+</block>

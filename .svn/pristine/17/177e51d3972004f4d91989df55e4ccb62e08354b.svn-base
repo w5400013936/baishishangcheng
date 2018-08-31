@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "百世商城"]
+	url = https://gitee.com/huisedebi/a_small_program_mall.git
+	fetch = +refs/heads/*:refs/remotes/百世商城/*
+[user]
+	name = Administrator
+	email = 530092772@qq.com
+[branch "SVN"]
+	remote = 百世商城
+	merge = refs/heads/SVN

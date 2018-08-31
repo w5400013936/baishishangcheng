@@ -1,0 +1,76 @@
+<!--pages/classifylistinto/classifylistinto.wxml-->
+<view class='header'>
+  <view class='munename' bindtap="tapMainMenu_type" data-id="{{chuanid}}">
+    <text>{{typename}}</text> 
+    <image src="/images/sanjiaoxing.png"></image>
+  </view> 
+   <view class='munename' bindtap="tapMainMenu_color">
+    <text>{{typecolor}}</text> 
+    <image src="/images/sanjiaoxing.png"></image>
+  </view>
+</view>
+ <view class="fixed_bg" wx:if="{{fixedbg}}" bindtap='closepop'></view>
+<view class="pop-type" wx:if="{{poptype}}">
+  <view class="pop-type-height">
+      <view wx:for="{{bigclassname}}" wx:if="{{item.PID==0}}"  data-id="{{item.ID}}" >
+            <view class='bigclass' >{{item.serName}}</view>
+            <view class="smallclass">            
+              <view wx:for="{{bigclassname}}" wx:for-item="smallname"  class='small_class_name {{idnum==smallname.ID?"on":""}}' wx:if="{{smallname.PID>0 && item.ID==smallname.PID}}" data-idnum="{{smallname.ID}}"  data-name="{{smallname.serName}}" bindtap='changesmallclass'>{{smallname.serName}}</view>
+            </view> 
+        </view> 
+  </view>
+</view>
+<view class="pop-color" wx:if="{{popcolor}}">
+  <view class="pop-type-height"> 
+    <view class='colortext  {{colorid==0?"on":""}}' bindtap='changecolor' data-id="0"  data-name="全部">全部</view>
+    <view wx:for="{{colorname}}"  class='colortext  {{colorid==item.ID?"on":""}}' bindtap='changecolor' data-pid="{{item.pID}}" data-id="{{item.ID}}" data-name="{{item.parmName}}">{{item.parmName}}</view>  
+  </view>
+</view>
+<view class='h25'></view>
+<!-- listdata -->
+<view  class="product-list" wx:for="{{productlist}}" wx:key="{{index}}"> 
+    <view class="wb50" wx:for="{{item.rows}}" wx:key="{{index}}" wx:for-item="items" data-id="{{items.ID}}" bindtap='linkdetail'>
+      <view class='bgImg' ><image src="{{bgImg}}"  mode="scaleToFill"/></view>   
+      <image src="{{items.dir}}{{items.imgName}}" mode="aspectFill"  style='position:absolute; z-index:2; top:0; left:0; '></image>
+      <view class="o-hidden">
+      <view class='left'>
+        <text class='f21'>￥</text>
+        <text class='f33'>{{items.price}}</text>
+      </view>
+      <view class='right'>
+        <text>{{items.prvName}}</text>
+        <text>{{items.cityName}}</text>
+      </view>
+      </view>
+      <view class='title'>{{items.itemName}}</view>
+    </view>
+</view>
+
+
+<block wx:if="{{completeMore}}">
+        <view class="load-content">
+          没有了~~
+        </view>
+</block>
+<block wx:if="{{dataNull}}">
+        <view class="dataNull">
+         <image src='../../images/null.png'></image>
+        </view>
+</block>
+<share hasTab='{{true}}'></share>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+
+
+<view class="swiper-tab">
+ <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">关于我们</view>
+ <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">联系我们</view>
+ <!-- <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">合作伙伴</view> -->
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
+ <!-- 关于我们 -->
+ <swiper-item>
+  <view class="content aboutuscontent">
+      <image class="aboutbanner" src="../../images/aboutbanner.png"></image>
+      <view class="about_info">
+        <text>百石商城，由南安百石商贸有限公司开发，提供最优秀的移动电商解决方案。</text> 
+          <view class="iconlist">
+            <view>
+              <image src="../../images/j.png"></image>
+              <text>国家免检</text>
+            </view>
+            <view>
+              <image src="../../images/m.png"></image>
+              <text>免费测量</text>
+            </view>
+            <view>
+              <image src="../../images/k.png"></image>
+              <text>3+5定制</text>
+            </view>
+            <view>
+              <image src="../../images/z.png"></image>
+              <text>厂家直达</text>
+            </view>
+          </view>
+        <text>百石商城，作为帮助石材行业商家的移动端多功能平台。作为商家服务公司，百石商城始终致力于通过产品和服务，让石材生意更好做。</text> 
+      </view>
+  </view>
+ </swiper-item>
+ <!-- 联系我们 -->
+  <swiper-item>
+  <view class="content Contactuscontent">
+      <image class="Contactusbanner" src="../../images/Contactusbanner.png"></image>
+        <view class="contactuslist">
+          <image src="../../images/contactus-icon1.png"></image>
+          <text>主办单位</text>
+          <view>
+            南安百石商贸有限公司
+          </view>
+        </view>
+          <view class="contactuslist">
+          <image src="../../images/contactus-icon2.png"></image>
+          <text>客服服务</text>
+          <view   bindtap="call_tel" data-phone="{{tel}}" >400-100-9093 </view>
+        </view>
+          <view class="contactuslist">
+          <image src="../../images/contactus-icon3.png"></image>
+          <text>办公地址</text>
+          <view>
+            福建省南安市官桥镇南联工业区
+          </view>
+        </view>
+    
+  </view>
+ </swiper-item>  
+ <!-- 合作伙伴 -->
+  <!-- <swiper-item>
+    <view class="content partnercontent">
+        <view class="title">
+          <image src="../../images/partner-icon.png"></image>
+          <text>合作伙伴</text>
+        </view>
+        <view class='partner-list'>
+        <block wx:for="{{partner}}">
+          <view>
+            <image src="{{item.pic}}"></image>
+            <text>{{item.name}}</text>
+          </view>
+        </block>         
+        </view>
+    </view>
+ </swiper-item>  -->
+</swiper>

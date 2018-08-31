@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/classifylistinto/classifylistinto",
+    "pages/classifylist/classifylist",
+    "pages/search/search",
+    "pages/detail/detail",
+    "pages/about/about",
+    "pages/cart/cart",
+    "pages/my/my",
+    "pages/searchresult/searchresult",
+    "pages/myOrder/myOrder",
+    "pages/myBill/myBill",
+    "pages/myFocus/myFocus",
+    "pages/myAddress/myAddress",
+    "pages/feedback/feedback",
+    "pages/addAddress/addAddress",
+    "pages/setting/setting",
+    "pages/myBillDetail/myBillDetail",
+    "pages/myOrderDetail/myOrderDetail",
+    "pages/myOrderRate/myOrderRate",
+    "pages/orderConfirm/orderConfirm",
+    "pages/payment/payment",
+    "pages/invoice/invoice",
+    "pages/payCode/payCode",
+    "pages/aboutUs/aboutUs"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#c9151e",
+    "navigationBarTitleText": "百石商城",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#676F73",
+    "selectedColor": "#C9151E",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/indexon.png"
+      },
+      {
+        "pagePath": "pages/classifylist/classifylist",
+        "text": "分类",
+        "iconPath": "images/list.png",
+        "selectedIconPath": "images/liston.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/carton.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/about.png",
+        "selectedIconPath": "images/abouton.png"
+      }
+    ]
+  }
+}

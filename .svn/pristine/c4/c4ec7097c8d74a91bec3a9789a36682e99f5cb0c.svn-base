@@ -1,0 +1,58 @@
+/* pages/payCode/payCode.wxss */
+view {
+  box-sizing: border-box;
+}
+.pay-header{
+  width: 100%;
+  height: 212rpx;
+  background-color: #fff;
+  padding: 57rpx 0;
+  text-align: center;
+}
+.paySum{
+  font-size: 25rpx;
+  color: #999999;
+}
+.paySum-price{
+  font-size: 50rpx;
+  color: #f23030;
+  margin-top: 15rpx;
+}
+.pay-cell{
+  width: 100%;
+  height: 90rpx;
+  border-top: 1rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  padding: 0 28rpx;
+  background-color: #fff;
+}
+.pay-cell-left{
+  flex: 1;
+  color: #333333;
+}
+.pay-cell-right{
+  color: #666666;
+}
+.QRcode-box{
+  width: 100%;
+  border-top: 1rpx solid #ddd;
+  background-color: #fff;
+  padding: 69rpx 0;
+  display: flex;
+  justify-content: center;
+}
+.QRcode-img{
+  width: 462rpx;
+  height: 462rpx;
+}
+.pay-footer{
+  width: 100;
+  height: 274rpx;
+  color: #666666;
+  line-height: 49.9875rpx;
+  padding: 26rpx 31rpx 0;
+}
+.pay-footer-text{
+  color: #c9151e;
+}

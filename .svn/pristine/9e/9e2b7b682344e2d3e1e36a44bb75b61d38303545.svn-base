@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "zan-cell": "/zanUI/cell/index",
+    "zan-cell-group": "/zanUI/cell-group/index",
+    "zan-badge": "/zanUI/badge/index",
+    "confirm": "/component/confirm/confirm"
+  }
+}

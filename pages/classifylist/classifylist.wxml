@@ -1,0 +1,66 @@
+<!--pages/classifylist/classifylist.wxml-->
+<view class="header">
+  <view class="searchbox" bindtap='searchlink'>
+      <icon type="search" size="16" color="#fff" style="float:left;margin:17rpx 15rpx 0 20rpx;"></icon>
+      <text>好石材搜出来</text>
+  </view>
+</view>
+<view class="h100"></view>
+  <view class="section_left">
+    <view class="hb100">
+        <view wx:for="{{bigclassname}}" wx:key="{{index}}" wx:if="{{item.PID==0}}" class='{{itemID}}' data-id="{{item.ID}}" >
+            <view class='big_class_name' >{{item.serName}}</view>
+            <view wx:for="{{bigclassname}}" wx:for-item="smallname" wx:key="{{index}}" class='small_class_name {{idnum==smallname.ID?"on":""}}' wx:if="{{smallname.PID>0 && item.ID==smallname.PID}}" data-idnum="{{smallname.ID}}"  data-name="{{smallname.serName}}" bindtap='classnamebtn'>{{smallname.serName}}</view>
+        </view> 
+    </view>
+  </view>
+
+  <view class="section_right">
+      <view class="hb100">  
+        <image wx:for="{{bigclassname}}" wx:key="{{index}}" wx:if="{{idnum==item.ID?true:falsh}}" class="banner" src='{{item.dir}}{{item.serImg}}'></image>
+        <!-- <image class="title" src='../../images/title2.png'></image> -->
+        <view class="bigtitle">
+          <text>热门推荐</text> 
+          <view class="bigtitleborder"></view>
+        </view>
+        <view class="goods">
+          <view class="list" wx:for="{{hotlist}}" wx:key="{{index}}"> 
+            <view class="boxc" wx:for-items="{{item.rows}}" wx:key="{{index}}" bindtap='linkdetail' data-id="{{item.ID}}">
+                <view class='bgImg' ><image src="{{bgImg}}"  mode="scaleToFill"/></view>   
+                <image class="" src='{{item.dir}}{{item.imgName}}' style='position:absolute; z-index:2; top:0; left:0; '></image>
+                <text>{{item.itemName}}</text>
+            </view> 
+          </view>
+        </view>
+
+        <view  class="bigtitle" bindtap='Jumpnextpage' data-id="{{chuanid}}" data-typename="{{smalllisttitle}}">
+          <text>{{smalllisttitle}}</text> 
+          <view class="bigtitleborder"></view>
+        </view>
+        <view class="goods">
+          <view  class="list" wx:for="{{smallclasslist}}"  wx:key="{{index}}">
+            <view class="boxc" wx:for-items="{{item.rows}}" wx:key="{{index}}" bindtap='linkdetail' data-id="{{item.ID}}">
+                <view class='bgImg' ><image src="{{bgImg}}"  mode="scaleToFill"/></view>   
+              <image class="" src='{{item.dir}}{{item.imgName}}' style='position:absolute; z-index:2; top:0; left:0; '></image>
+              <text>{{item.itemName}}</text>
+            </view> 
+          </view>
+        </view>
+      </view>
+  </view>
+<block wx:if="{{completeMore}}">
+        <view class="load-content">
+          没有了~~
+        </view>
+</block>
+<share hasTab='{{true}}'></share>
+
+
+
+
+
+
+
+
+
+

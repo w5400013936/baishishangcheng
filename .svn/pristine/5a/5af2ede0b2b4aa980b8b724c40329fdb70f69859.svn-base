@@ -1,0 +1,93 @@
+<!--pages/my/my.wxml-->
+<view style='height:100%;'>
+  <view class="header">
+    <view class="searchbox" bindtap='searchlink'>
+      <icon type="search" size="16" color="#fff" style="float:left;margin:17rpx 15rpx 0 20rpx;"></icon>
+      <text>好石材搜出来</text>
+      <image class='search-img' src='/images/scan.png' catchtap='scanTap'></image>
+    </view>
+  </view>
+  <view class='userOperation'>
+    <view class='userLogin' bindtap='loginTap'>
+      <!-- <text bindtap='wxLogin'>微信登录</text>  -->
+      <block wx:if="{{userInfo}}">
+        <image src='{{userInfoX.avatarUrl}}' class='userHead'></image>
+      </block>
+      <block wx:else>
+        <image src='/images/touxiang.png' class='userHead'></image>
+
+      </block>
+      <view class='userInfo'>
+        <block wx:if="{{userInfo}}">
+          <view class='userName'>{{userInfoX.nickName}}</view>
+        </block>
+        <block wx:else>
+          <view class='userName'>微信登录</view>
+        </block>
+      </view>
+      <!-- <view class='arrow'>
+      <image class='right-img' src='/images/right-white.png'></image>
+    </view> -->
+    </view>
+  </view>
+  <zan-cell title="我的订单" value="全部订单" isLink="{{true}}" bindtap="orderList" data-selectedid=""></zan-cell>
+  <view class='choose-box'>
+    <view class="nav_top_items" bindtap="orderList" data-selectedid="orderstate|0">
+      <image class='badge-container' src="/images/paid.png">
+        <block wx:if="{{orderNum01>0&&orderNum01<100}}">
+          <zan-badge>{{orderNum01}}</zan-badge>
+        </block>
+        <block wx:if="{{orderNum01>=100}}">
+          <zan-badge>99+</zan-badge>
+        </block>
+      </image>
+      <text>待付款</text>
+    </view>
+    <view class="nav_top_items" bindtap="orderList" data-selectedid="orderstate|2">
+      <image class='badge-container' src="/images/car.png">
+          <block wx:if="{{orderNum02>0&&orderNum02<100}}">
+          <zan-badge>{{orderNum02}}</zan-badge>
+        </block>
+        <block wx:if="{{orderNum02>=100}}">
+          <zan-badge>99+</zan-badge>
+        </block>
+      </image>
+      <text>已付款</text>
+    </view>
+    <view class="nav_top_items" bindtap="orderList" data-selectedid="orderstate|3">
+      <image class='badge-container' src="/images/flower.png">
+        <block wx:if="{{orderNum03>0&&orderNum03<100}}">
+          <zan-badge>{{orderNum03}}</zan-badge>
+        </block>
+        <block wx:if="{{orderNum03>=100}}">
+          <zan-badge>99+</zan-badge>
+        </block>
+      </image>
+      <text>待评价</text>
+    </view>
+    <view class="nav_top_items" bindtap="orderList" data-selectedid="orderstate|4">
+      <image src="/images/completed.png"></image>
+      <text>已完成</text>
+    </view>
+  </view>
+
+  <view style="margin-top:20rpx;">
+    <zan-cell-group>
+      <zan-cell title="我的账单" isLink="{{true}}" bindtap="woDeZhangDan"></zan-cell>
+      <zan-cell title="我关注的" isLink="{{true}}" bindtap="woDeGuanZhu"></zan-cell>
+      <zan-cell title="收货地址" isLink="{{true}}" bindtap="shouHuoDiZhi"></zan-cell>
+    </zan-cell-group>
+  </view>
+  <view style="margin-top:20rpx;">
+    <zan-cell-group>
+      <zan-cell title="联系客服" value="400-100-9093" isLink="{{true}}" bindtap="contactService"></zan-cell>
+      <zan-cell title="意见反馈" isLink="{{true}}" bindtap="yiJianFanKui"></zan-cell>
+    </zan-cell-group>
+  </view>
+</view>
+
+<!-- <view style="margin-top:20rpx;">
+  <zan-cell title="设置" isLink="{{true}}" url='/pages/setting/setting'></zan-cell>
+</view> -->
+
+<confirm show="{{confirmShow}}"></confirm>

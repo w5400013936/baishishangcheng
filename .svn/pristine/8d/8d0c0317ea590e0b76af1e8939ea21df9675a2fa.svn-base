@@ -1,0 +1,124 @@
+<!--pages/car/car.wxml-->
+<block wx:if="{{!isfail}}">
+  <confirm show="{{confirmShow}}"></confirm>
+  <block wx:if="{{adapter.length==0}}">
+    <view class="car-not">
+      <image class="car-not-img" src="/images/ic_empty_gouwuche.png"></image>
+      <view class="car-not-text">购物车暂无商品</view>
+      <navigator open-type="switchTab" url="/pages/classifylist/classifylist">
+        <button class="car-not-btn">去逛逛</button>
+      </navigator>
+    </view>
+  </block>
+  <view style='padding-bottom:110rpx;'>
+    <!-- <view class="car" wx:if="{{cartList !=''}}">
+   <block wx:for="{{cartList}}" wx:key="cart"> 
+  <view class="car-item">
+    <view bindtap="select_cart" data-id="{{item.id}}" data-selected="{{item.selected}}" class="car-btn {{item.selected==1 ? 'car-active':''}}"></view>
+    <view class="car-box">
+      <navigator url="/pages/goods_detail/goods_detail?gid={{item.goods_id}}">
+        <image class="goods-pic" style="background-image:url({{imgurl}}/public/xcximage/default_detail.jpg);" src="{{item.thumb}}"></image>
+      </navigator>
+      <view class="goods-box">
+        <view class="goods-del" bindtap="delete_cart" data-index="{{index}}" data-id="{{item.id}}">删除</view>
+        <view class="goods-tit">{{item.goods_name}}</view>
+        <view class="goods-text">{{item.spec_key_name}}</view>
+        <view class="goods-bottom">
+          <view class="amount-btn">
+            <button bindtap="sub" data-index="{{index}}" data-id="{{item.id}}" data-goods_num="{{item.goods_num}}" data-store_count="{{item.store_count}}">-</button>
+            <input type="text" value="{{item.goods_num}}" />
+            <button bindtap="add" data-index="{{index}}" data-id="{{item.id}}" data-goods_num="{{item.goods_num}}" data-store_count="{{item.store_count}}">+</button>
+          </view>
+          <view class="goods-price">¥{{item.member_goods_price}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+   </block> 
+</view> -->
+    <block wx:for="{{adapter}}" wx:key="{{index}}" wx:for-item="item">
+      <block wx:if="{{item.itemType==5}}">
+        <view class='panel' bindtap='detailTap' data-id='{{item.itemID}}'>
+          <view class='panel-title'>
+            <view class='panel-title-left'>
+              <image class='panel-ico' src='{{item.select?"/images/choosed.png":"/images/circle.png"}}' catchtap='xuanZe' data-index='{{index}}'></image>
+              <view class='panel-title-text'>【套餐】{{item.perty}}</view>
+            </view>
+            <view class='panel-title-right'>
+              <image class='panel-ico panel-del' src='/images/shanchu.png' catchtap='delTap' data-id='{{item.ID}}' data-index='{{index}}'></image>
+            </view>
+          </view>
+          <block wx:for="{{item.Pack}}" wx:key="{{indexx}}" wx:for-item="itemx">
+            <view class='panel-content'>
+              <image class='panel-content-img' src='{{itemx.dir+itemx.imgName}}'></image>
+              <view class='panel-content-right'>
+                <view class='panel-content-name'>{{itemx.itemName}}</view>
+                <view class='panel-content-price'>
+                  <text>￥</text>{{itemx.price}}</view>
+                <view class='panel-content-num'>数量：
+                  <text>{{item.buyCount*itemx.num}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class='panel-footer'>
+            <view class='panel-footer-left'>
+              套餐价：
+              <text class='cF23030'>{{item.price}}</text>
+            </view>
+            <view class='input-p'>
+              <view class='input-add input-btn' catchtap='del' data-index='{{index}}'>-</view>
+              <view class='input-number'>
+                <input type="number" value='{{item.buyCount}}' maxlength='9' catchtap='haha' bindinput='numInput' data-index='{{index}}' />
+              </view>
+              <view class='input-minus input-btn' catchtap='add' data-index='{{index}}'>+</view>
+              <view class='clear'></view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='panel' bindtap='detailTap' data-id='{{item.itemID}}'>
+          <view class='panel-container'>
+            <view class='panel-left'>
+              <image class='panel-ico' src='{{item.select?"/images/choosed.png":"/images/circle.png"}}' catchtap='xuanZe' data-index='{{index}}'></image>
+              <image class='panel-img' src='{{item.dir+item.imgName}}'></image>
+            </view>
+            <view class='panel-right'>
+              <view class='panel-name'>{{item.itemName}}</view>
+              <image class='panel-ico panel-del' src='/images/shanchu.png' catchtap='delTap' data-id='{{item.ID}}' data-index='{{index}}'></image>
+              <view class='panel-spec'>{{item.perty}}</view>
+              <view class='panel-oldPrice'>215.00</view>
+              <view class='panel-price'>{{item.price}}</view>
+
+              <view class='input-p'>
+                <view class='input-add input-btn {{item.buyCount=="1"?"input-btn_gray":""}}' catchtap='del' data-index='{{index}}'>-</view>
+                <view class='input-number'>
+                  <input type="number" value='{{item.buyCount}}' maxlength='9' catchtap='haha' bindinput='numInput' data-index='{{index}}' />
+                </view>
+                <view class='input-minus input-btn' catchtap='add' data-index='{{index}}'>+</view>
+                <view class='clear'></view>
+              </view>
+
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </view>
+
+
+  <view class="car-bottom" wx:if="{{adapter.length>0}}">
+    <button class="settlement-btn" bindtap='jieSuan'>去结算({{num}})</button>
+    <view class="car-bottom-main">
+      <view class="car-bottom-box">
+        <view bindtap="quanXuan" class="car-btn {{isAll ? 'car-active':''}}"></view>
+        <label>全选</label>
+        <view class="car-bottom-total">合计:
+          <label>¥{{amount}}</label>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</block>

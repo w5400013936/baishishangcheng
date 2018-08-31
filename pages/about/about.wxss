@@ -1,0 +1,150 @@
+/* pages/about/about.wxss */
+.swiper-tab{
+  width: 100%; 
+  text-align: center; 
+  line-height: 91rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.swiper-box{
+  margin-top:98rpx
+}
+.swiper-tab-list{
+  font-size: 29rpx; 
+  display: inline-block; 
+  padding:0 29rpx; 
+  color: #666; 
+}
+.on{
+  color: #f00; 
+  border-bottom: 5rpx solid #f00;
+}
+.swiper-box{ 
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+ }
+.content{
+  margin: 24rpx auto;
+  background: #fff;
+  width: 696rpx;
+}
+/* 关于我们 */
+.aboutbanner{
+  width: 696rpx;
+  height: 228rpx;
+  margin-bottom:15rpx; 
+}
+.about_info{
+  padding:0 29rpx 29rpx; 
+  
+}
+.about_info text{
+  font-size: 25rpx;
+  color: #666;
+  line-height: 55rpx;
+}
+.iconlist{
+  text-align: center;
+  width: 630rpx;
+  margin:20rpx auto;
+}
+.iconlist view{
+display: inline-block;
+width: 157rpx; 
+}
+.iconlist image{
+width: 52rpx;
+height: 58rpx;
+display: block;
+margin:0 auto 10rpx;
+
+}
+.iconlist text{
+ font-size: 21rpx;
+  text-indent: 0;
+ 
+}
+/* 联系我们 */
+.Contactuscontent{
+background: #ececec;
+}
+.Contactusbanner{
+  width: 696rpx;
+  height: 369rpx;
+}
+.contactuslist{
+  margin: 29rpx 0 0 0;
+font-size: 29rpx;
+  line-height: 84rpx;
+  background: #fff;
+}
+.contactuslist image{
+width: 37rpx;
+height: 37rpx;
+float: left;
+margin: 24rpx 0 0 22rpx;
+}
+.contactuslist text{
+color: #666;
+margin-left:20rpx; 
+}
+.contactuslist view{
+color: #333;
+border-top:2rpx solid #ececec ;
+padding: 0 0 0 79rpx;
+}
+/* 合作伙伴 */
+
+/* .partnercontent{} */
+.partnercontent .title{
+  border-bottom:2px solid #ececec;
+  line-height: 84rpx;
+}
+.partnercontent .title image{
+width: 42rpx;
+height: 33rpx;
+margin: 26rpx 0 0 22rpx;
+float: left;
+}
+.partnercontent .title text{
+  margin-left:14rpx;
+  font-size: 29rpx;
+  color: #666; 
+}
+.partner-list{
+  padding: 9rpx 9rpx 30rpx 9rpx;
+  overflow:hidden;
+
+}
+.partner-list view{
+width: 50%;
+float: left;
+text-align: center;
+margin: 36rpx 0 0 0;
+
+}
+.partner-list image{
+width: 266rpx;
+height: 83rpx;
+display: block;
+margin: 0 auto;
+margin-bottom:17rpx; 
+
+}
+.partner-list text{
+display: block;
+
+}
+
+
+
+
+
+
+
+

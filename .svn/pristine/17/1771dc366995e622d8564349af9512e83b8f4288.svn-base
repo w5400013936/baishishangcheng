@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "zan-cell": "/zanUI/cell/index",
+    "zan-cell-group": "/zanUI/cell-group/index",
+    "zan-badge": "/zanUI/badge/index",
+    "confirm": "/component/confirm/confirm"
+  },
+  "enablePullDownRefresh": false
+}

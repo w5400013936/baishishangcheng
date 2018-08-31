@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "订单确认",
+  "usingComponents": {
+    "code":"/component/code/code"
+  }
+}

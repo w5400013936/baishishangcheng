@@ -1,0 +1,134 @@
+/* pages/payment/payment.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+.payTime {
+  width: 100%;
+  height: 181rpx;
+  background-color: #fff;
+  padding: 50rpx 0 52rpx 0;
+  text-align: center;
+}
+
+.payTime-text {
+  font-size: 21rpx;
+  color: #999;
+}
+
+.payTime-num {
+  font-size: 39rpx;
+  color: #333;
+  margin-top: 10rpx;
+}
+
+.orderPrice-cell {
+  position: relative;
+  width: 100%;
+  height: 90rpx;
+  padding: 32rpx 29rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+  color: #333;
+}
+
+.orderPrice-cell-left {
+  flex: 1;
+}
+
+.orderPrice-cell-right {
+  position: relative;
+  text-align: right;
+  color: #f23030;
+}
+
+.orderPrice-cell-left.remark {
+  margin-right: 42rpx;
+  flex: none;
+}
+
+.orderPrice-cell-right.remark {
+  flex: 1;
+  text-align: left;
+  color: #333;
+}
+
+.orderPrice-cell-count {
+  width: 100%;
+  text-align: right;
+  font-size: 21rpx;
+  color: #999;
+  margin-top: 13rpx;
+}
+
+.payment-select {
+  width: 100%;
+}
+
+.payment-select-header {
+  width: 100%;
+  height: 92rpx;
+  padding: 42rpx 29rpx 24rpx;
+  color: #333;
+  font-size: 25rpx;
+}
+
+.payment-select-cell {
+  width: 100%;
+  height: 104rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx 0 29rpx;
+  border-top: 1rpx solid #ddd;
+  background-color: #fff;
+}
+
+.payment-select-cell-left {
+  flex: 1;
+}
+
+.payment-select-cell-left image {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.payment-select-cell-left label {
+  font-size: 25rpx;
+  color: #333;
+  vertical-align: 50%;
+  margin-left: 34rpx;
+}
+
+.payment-select-cell-right image {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.bottom-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 97rpx;
+  background-color: #c9151e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.bottom-box-con {
+  font-size: 33rpx;
+  color: #fff;
+}
+
+.bottom-box-text {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 33.325rpx;
+}

@@ -1,0 +1,12 @@
+<!--component/code/code.wxml-->
+<block wx:if='{{show}}'>
+  <view class='code-box'>
+    <view class='code-title'>领取优惠码</view>
+    <input type='text' class='code-input' placeholder='请输入优惠码' bindinput='youHuiMaInput' value='{{youHuiQuan}}'></input>
+    <view class='btn-box'>
+      <view class='cancel-btn' bindtap='handleHideBoxCancle'>取消</view>
+      <view class='submit-btn' bindtap='handleHideBox'>确认</view>
+    </view>
+  </view>
+  <view class='code-shadow'></view>
+</block>

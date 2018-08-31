@@ -1,0 +1,20 @@
+<!--pages/setting/setting.wxml-->
+<view class='container-con' style='margin-top:24rpx;'>
+  <!-- <view class='setting-cell'> -->
+    <!-- <view class='setting-cell-left'>
+      <view class='setting-cell-text'>清除缓存</view>
+    </view> -->
+    <!-- <view class='setting-cell-right'>999MB</view>
+  </view> -->
+
+  <navigator url='/pages/aboutUs/aboutUs'>
+    <view class='setting-cell' style='margin-top:61rpx;'>
+      <view class='setting-cell-left'>
+        <view class='setting-cell-text'>关于</view>
+      </view>
+      <view class='setting-cell-right'>
+        <image class='setting-cell-icon' src='/images/right.png'></image>
+      </view>
+    </view>
+  </navigator>
+</view>

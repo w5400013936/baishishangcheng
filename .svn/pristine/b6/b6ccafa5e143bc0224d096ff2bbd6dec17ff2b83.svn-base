@@ -1,0 +1,269 @@
+<import src="../../wxParse/wxParse.wxml" />
+<!--banner-->
+<view class='header'>
+  <view class='{{change==item.id?"on":""}}' bindtap='headernav' wx:key="{{index}}" wx:for="{{headernav}}" data-id="{{item.id}}">{{item.title}}</view>
+</view>
+<view style='height:100rpx'></view>
+<scroll-view class="content" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" style="height:{{sh}}px" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+  <view id="inToView1"></view>
+  <view class='bgImg' style='height:{{w}}px;width:{{w}}px;position:absolute;'>
+    <image src="{{bgImg}}" mode=" scaleToFill" />
+  </view>
+  <view class="swiper">
+    <swiper duration="300" current="0" bindchange="bannerswiper" style='height:{{w}}px;width:{{w}}px'>
+      <swiper-item wx:for="{{banner}}" wx:key="{{index}}">
+        <view class='bgImg' style='height:{{w}}px;width:{{w}}px'>
+          <image src="{{bgImg}}" mode=" scaleToFill" />
+        </view>
+        <image src="{{item.dir}}{{item.itempic}}" mode="aspectFill" style='height:{{w}}px;width:{{w}}px; position:absolute; z-index:2; top:0; left:0; ' />
+      </swiper-item>
+    </swiper>
+    <view class='current'>
+      <text class='cfff f33'>{{currents}}</text>
+      <text class='f21 c999'>/{{bannerlength}}</text>
+    </view>
+  </view>
+  <!-- 产品信息 -->
+  <view class='detail-info'>
+    <image class='shares' src='/images/share.png'></image>
+    <button class='shares sharesbutton' data-name="shareBtn" open-type="share" plain="true" size="mini"></button>
+    <view class='name left'>
+      <text>{{detailname}}</text>
+    </view>
+    <view class='clear'></view>
+    <view class='price'>
+      <text class=' f33 cF10215'>￥</text>
+      <text class='f44 cF10215'>{{price}}</text>
+    </view>
+    <view class='clear'></view>
+    <view class='detail-specification' wx:if="{{gd_show}}">
+      <block wx:if="{{isPic}}">
+        <text>规格 </text>
+        <block wx:for="{{stalist}}" wx:for-item="item" wx:key="{{index}}">
+          <view class="specification-box {{true==item.flag ? 'on':''}}" data-index="{{index}}" data-flag='{{item.flag}}' data-unit='{{item.unit}}' data-price='{{item.price}}' data-pic='{{item.dir+item.small}}' data-oacount='{{item.oaCount}}' data-unit='{{item.unit}}'
+            data-pert='{{item.pert}}' bindtap='onSpecification'>
+            <image class='specification-img' src='{{item.dir+item.small}}'></image>
+          </view>
+        </block>
+      </block>
+      <block wx:else>
+        <text>款式 </text>
+        <block wx:for="{{stalist}}" wx:for-item="item" wx:key="{{index}}">
+          <view class="specification-li {{true==item.flag ? 'on':''}}" data-index="{{index}}" data-flag='{{item.flag}}' data-unit='{{item.unit}}' data-price='{{item.price}}' data-oacount='{{item.oaCount}}' data-unit='{{item.unit}}' data-pert='{{item.pert}}' bindtap='onSpecification'>{{item.perValue}}</view>
+        </block>
+      </block>
+
+
+      <view class='clear'></view>
+    </view>
+  </view>
+  <block wx:if="{{packBeanList.length>0}}">
+    <view class='detail-package' bindtap='choosePackage' data-index='0'>
+      <text class='left c999 f25'>选择套餐</text>
+      <view class='right f25'>
+        {{packBeanList.length}}个套餐
+        <image class='package-img' src='/images/right.png'></image>
+      </view>
+      <view class='clear'></view>
+    </view>
+  </block>
+
+  <view class="detail-Place">
+    <text class='left c999 f25'>产地</text>
+    <image class='left' src='../../images/address.png'></image>
+    <text class='left c333 f25'>{{placeprvName}}{{placecityName}}</text>
+  </view>
+  <image class="qualitygoods" src='{{zpimg}}'></image>
+  <view class="detail-statement">
+    <view>
+      <image src='{{dagou}}'></image>
+      <text>明码标价</text>
+    </view>
+    <view>
+      <image src='{{dagou}}'></image>
+      <text>按时发货</text>
+    </view>
+    <view>
+      <image src='{{dagou}}'></image>
+      <text>官方提供售后服务</text>
+    </view>
+    <view>
+      <image src='{{dagou}}'></image>
+      <text>质量保证</text>
+    </view>
+  </view>
+  <view id="inToView2"></view>
+  <view class='details-text'>
+    <image class="introduce" src='{{inimg}}'></image>
+    <view class='details-describe'>
+      <!-- <image class='' wx:for="{{}}" src='../../images/404small.png'></image> -->
+      <template is="wxParse" data="{{wxParseData:article_content.nodes}}" />
+    </view>
+    <!-- <text class="load-content">已经到底了！</text> -->
+  </view>
+  <view id="inToView3"></view>
+  <view class="comment" style='min-height:{{sh}}px'>
+    <view class='commenthead'>
+      <text class="left c333 f33">评价</text>
+      <text class="left c333 f24"> （{{disCount}}）</text>
+      <view class='right f25 c666'>
+        好评度
+        <text class='cF10215'>  {{praise}}%</text>
+      </view>
+    </view>
+    <view class="commentoperation">
+      <view bindtap='clickcomment' class='{{commentid==1?"on":""}}' data-id="1">全部（{{disCount}}）</view>
+      <view bindtap='clickcomment' class='{{commentid==2?"on":""}}' data-id="2">好评（{{disGood}}）</view>
+      <view bindtap='clickcomment' class='{{commentid==3?"on":""}}' data-id="3">中评（{{disMidd}}）</view>
+      <view bindtap='clickcomment' class='{{commentid==4?"on":""}}' data-id="4">差评（{{disBad}}）</view>
+    </view>
+    <view class='commentinfo'>
+      <view class='box' wx:for="{{commentlist}}" wx:key="{{index}}">
+        <view class="star left">
+          <image src='../../images/star{{item.score}}.png'></image>
+        </view>
+        <view class="name right c999 f33">{{item.cutName}}</view>
+        <view class="clear"></view>
+        <view class="content c666 f25">{{item.question}}</view>
+      </view>
+
+      <view class='morecomment' wx:if="{{morecomment}}">{{commenttext}}~</view>
+
+    </view>
+  </view>
+
+</scroll-view>
+<view class='footer-fixed'>
+  <view class='service footer-span3' bindtap="makePhoneCall" data-phone="{{tel}}">
+    <image class='ico' src='../../images/service.png' mode="widthFix"></image>
+    <text>客服</text>
+  </view>
+  <view class='follow footer-span3' bindtap='guanZhu'>
+    <image class='ico' src='{{isCollect?"../../images/followed.png":"../../images/follow.png"}}' mode="widthFix"></image>
+    <text>关注</text>
+  </view>
+  <view class='cart footer-span3' bindtap='carTap'>
+    <image class='ico badge-container' src='../../images/cart2.png' mode="widthFix">
+      <zan-badge>10</zan-badge>
+    </image>
+    <text>购物车</text>
+  </view>
+  <view class='tel' bindtap="addtocart">
+    加入购物车
+  </view>
+</view>
+<view class='go-buy'>
+  <view class='go-buy-bg' wx:if="{{fixedbg}}" bindtap='closepop'></view>
+  <view class='go-buy-info' wx:if="{{download}}">
+    <view class='go-buy-product-info'>
+      <view class='thumb'>
+        <image src='{{picCar}}' mode="widthFix"></image>
+      </view>
+      <view class='name'>
+        <view class='Price'>￥{{price}}</view>
+        <view class='title'>{{detailname}}</view>
+      </view>
+      <view class='close' bindtap='closepop'>
+        <image src='../../images/close.png'></image>
+      </view>
+    </view>
+    <view class='spec' wx:if="{{gd_show}}">
+      <block wx:if="{{isPic}}">
+        <text>规格</text>
+
+        <block wx:for="{{stalist}}" wx:for-item="item" wx:key="{{index}}">
+          <view class="spec-box {{true==item.flag ? 'on':''}}" data-index="{{index}}" data-flag='{{item.flag}}' data-unit='{{item.unit}}' data-price='{{item.price}}' data-oacount='{{item.oaCount}}' data-pic='{{item.dir+item.small}}' data-unit='{{item.unit}}' data-pert='{{item.pert}}'
+            bindtap='onSpecification'>
+            <image class='spec-img' src='{{item.dir+item.small}}'></image>
+          </view>
+        </block>
+      </block>
+      <block wx:else>
+        <text>款式</text>
+
+        <block wx:for="{{stalist}}" wx:for-item="item" wx:key="{{index}}">
+          <view class="spec-li {{true==item.flag ? 'on':''}}" data-index="{{index}}" data-flag='{{item.flag}}' data-unit='{{item.unit}}' data-price='{{item.price}}' data-oacount='{{item.oaCount}}' data-unit='{{item.unit}}' data-pert='{{item.pert}}' bindtap='onSpecification'>{{item.perValue}}</view>
+        </block>
+      </block>
+
+
+      <view class='clear'></view>
+    </view>
+    <view class='num'>
+      <text>数量</text>
+      <view class='input-p'>
+        <view class='input-add input-btn' bindtap='del'>-</view>
+        <view class='input-number'>
+          <input type="number" value='{{num}}' maxlength='9' bindinput='numInput'/>
+        </view>
+        <view class='input-minus input-btn' bindtap='add'>+</view>
+        <view class='clear'></view>
+      </view>
+      <view class='tips'>库存（{{oaCount}}{{unit}}）</view>
+    </view>
+    <view class='h60'></view>
+    <view class='go-buy-btn'>
+      <view class='go-btn' bindtap='buyNow'>立即购买</view>
+      <view class='go-btn buy-btn' bindtap='addCar'>加入购物车</view>
+    </view>
+  </view>
+</view>
+
+<view class='go-buy select-package'>
+  <view class='go-buy-bg' wx:if="{{maskShow}}" bindtap='closePackagePop'></view>
+  <!-- <view class='go-buy-bg'></view> -->
+  <view class='go-buy-info' wx:if="{{packageShow}}">
+    <!-- <view class='go-buy-info'> -->
+    <view class='go-buy-product-info'>
+      <view class='thumb'>
+        <image src='{{taoCan.dir+taoCan.bigimg}}' mode="widthFix"></image>
+      </view>
+      <view class='name'>
+        <view class='Price'>￥{{taoCan.price}}</view>
+        <view class='title'>{{taoCan.packname}}</view>
+      </view>
+      <view class='close' bindtap='closePackagePop'>
+        <image src='../../images/close.png'></image>
+      </view>
+    </view>
+    <scroll-view class='package-cell' scroll-x="true">
+      <block wx:for="{{packItem}}" wx:key="index">
+        <view class='package-cell-box'>
+          <image class='package-cell-img' src='{{item.dir+item.imgName}}'></image>
+          <view class='package-cell-num'>×{{item.num}}</view>
+          <view class='package-cell-text'>{{item.itemName}}</view>
+        </view>
+        <block wx:if="{{!item.last}}">
+          <image class='package-img' src='/images/plus-gray.png'></image>
+        </block>
+      </block>
+    </scroll-view>
+    <view class='spec'>
+      <text>套餐</text>
+      <block wx:for="{{packBeanList}}" wx:key="{{index}}">
+        <view class='spec-package {{item.select?"on":""}}' bindtap='choosePackage' data-index='{{index}}'>
+          <view class='spec-package-content'>
+            <view class='spec-package-text'>{{item.packname}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='num'>
+      <text>数量</text>
+      <view class='input-p'>
+        <view class='input-add input-btn' bindtap='delTaoCan'>-</view>
+        <view class='input-number'>
+          <input type="number" value='{{taoCanNum}}' bindinput='taoCanNumInput'/>
+        </view>
+        <view class='input-minus input-btn' bindtap='addTaoCan'>+</view>
+        <view class='clear'></view>
+      </view>
+      <!-- <view class='tips'>库存（0/个）</view> -->
+    </view>
+    <view class='h60'></view>
+    <view class='go-buy-btn'>
+      <view class='go-btn buy-btn' bindtap='addCarTaoCan'>加入购物车</view>
+    </view>
+  </view>
+</view>
+<confirm show="{{confirmShow}}"></confirm>

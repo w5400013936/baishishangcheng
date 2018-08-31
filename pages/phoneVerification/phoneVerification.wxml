@@ -1,0 +1,19 @@
+<!--pages/phoneVerification/phoneVerification.wxml-->
+<view class='main'>
+  <view class='top-tips'>请确保你的手机通畅，用于接收验证码短信</view>
+  <view class='input-box'>
+    <view class='input-account'>
+      <input type='text' placeholder='请输入手机号码' bindinput='phoneInput' value='{{phone}}' maxlength='11'></input>
+    </view>
+    <view class='input-code'>
+      <view class='cell-left'>
+        <input type='text' placeholder='请输入验证码' bindinput='smsInput' value='{{sms}}' maxlength='6'></input>
+      </view>
+      <view class='cell-right'>
+        <view class='code-btn {{showSms?"on":""}}' bindtap='getSms'>{{smsText}}</view>
+      </view>
+    </view>
+  </view>
+
+  <button class='submit-btn {{showRenZheng?"on":""}}' disabled='{{!showRenZheng}}' bindtap='renZheng'>认证</button>
+</view>

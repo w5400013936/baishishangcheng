@@ -1,0 +1,35 @@
+<!--pages/myFocus/myFocus.wxml-->
+<view class="list-box">
+  <view class='box'>
+    <view class="product-list">
+      <block wx:for="{{rows}}" wx:for-item="items" wx:key="{{index}}">
+        <view class="wb50" bindlongpress='del' bindtap='dianJi' data-id='{{items.ID}}' data-index='{{index}}'>
+          <view class='bgImg'>
+            <image src="{{items.dir+items.imgName}}" mode="scaleToFill" />
+          </view>
+          <image src="{{items.dir+items.imgName}}" mode="aspectFill" style='position:absolute; z-index:2; top:0; left:0; '></image>
+          <block wx:if="{{isDel}}">
+            <view class='removeProduct'>
+              <view class='shadow'></view>
+              <view class='remove-con'>
+                <image class='remove-img' src='/images/remove.png'></image>
+              </view>
+            </view>
+          </block>
+          <view class="o-hidden">
+            <view class='left'>
+              <text class='f21'>￥</text>
+              <text class='f33'>{{items.price}}</text>
+            </view>
+            <view class='right'>
+              <text>{{items.vinName}}</text>
+              <text>{{items.cityName}}</text>
+            </view>
+          </view>
+          <view class='title'>{{items.itemName}}</view>
+        </view>
+
+      </block>
+    </view>
+  </view>
+</view>

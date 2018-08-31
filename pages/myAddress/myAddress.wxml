@@ -1,0 +1,52 @@
+<view class='container-con' style='margin-bottom:121rpx;'>
+  <block wx:for="{{rows}}" wx:key="{{index}}">
+    <view class='addList' bindtap='bianJi' data-bean='{{item}}'>
+      <view class='addList-header'>
+        <view class='addList-content'>
+
+          <view class='userInfo'>
+            <text>{{item.contact}}</text>
+            <text style='margin-left:44rpx;'>{{item.mobile}}</text>
+          </view>
+
+          <view class='address'>
+            <image src='/images/location.png'></image>
+            <text>{{item.proName}}{{item.cityName}}{{item.townName}}{{item.dress}}</text>
+          </view>
+
+          <view class='arrow'>
+            <image src='/images/right.png'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='addList-footer'>
+        <view class='addList-content'>
+          <view class='default-add' catchtap='moRen' data-item='{{item}}'>
+            <block wx:if="{{item.isdefault}}">
+              <image src='/images/choosed.png'></image>
+            </block>
+            <block wx:else>
+              <image src='/images/circle.png'></image>
+            </block>
+            <view class='text-justify'>默认地址</view>
+          </view>
+
+          <view class='add-delete' catchtap='del' data-id='{{item.ID}}' data-index='{{index}}'>
+            <view class='text-justify'>删除</view>
+            <image src='/images/shanchu.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>
+<navigator url='/pages/addAddress/addAddress'>
+  <view class='bottom-box'>
+    <view class='bottom-box-con'>
+      <image src='/images/plus.png'></image>
+      <view class='bottom-box-text'>新增收货地址</view>
+    </view>
+  </view>
+</navigator>

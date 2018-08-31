@@ -1,0 +1,9 @@
+<!--component/share/share.wxml-->
+<block wx:if='{{show}}'>
+  <view class='share-box'>
+    <image wx:if='{{showHome}}' src='/images/home_red.png' bindtap='home'></image>
+    <button open-type="share">
+      <image src='/images/share_red.png' class='mt30'></image>
+    </button>
+  </view>
+</block>

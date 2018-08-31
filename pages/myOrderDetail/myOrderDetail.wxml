@@ -1,0 +1,293 @@
+<!--pages/myOrderDetail/myOrderDetail.wxml-->
+<block wx:if="{{!isfail}}">
+  <view class='container-con' style='padding-bottom:122rpx;'>
+    <block wx:if="{{data.Dress.ID>0}}">
+      <view class='addList-header'>
+        <view class='addList-content'>
+
+          <view class='userInfo'>
+            <text>{{data.Dress.contact}}</text>
+            <text style='margin-left:44rpx;'>{{data.Dress.mobile}}</text>
+            <block wx:if="{{data.Dress.isdefault}}">
+              <view class='default-add'>默认</view>
+            </block>
+          </view>
+
+          <view class='address'>
+            <image src='/images/location.png'></image>
+            <text>{{data.Dress.proName}}{{data.Dress.cityName}}{{data.Dress.townName}}{{data.Dress.dress}}</text>
+          </view>
+
+        </view>
+      </view>
+    </block>
+
+    <!-- <view class="panel">
+      <view class='panel-content'>
+        <image class='panel-content-img' src='/images/img1.png'></image>
+        <view class='panel-content-right'>
+          <view class='panel-content-title'>BG-001</view>
+          <view class='panel-content-subTitle'>
+            <text>规格： </text>
+            <text>600x600x14mm</text>
+          </view>
+          <view class='panel-content-price'>
+            <text>￥</text>
+            <text style='font-size:33rpx;'>8000</text>.
+            <text>00</text>
+          </view>
+        </view>
+        <view class='panel-content-num'>
+          <text style='color:#999999;margin-right:13rpx;'>数量：</text>
+          <text style='color:#f23030;'>5</text>
+        </view>
+      </view>
+      <view class='panel-content'>
+        <image class='panel-content-img' src='/images/img1.png'></image>
+        <view class='panel-content-right'>
+          <view class='panel-content-title'>BG-001</view>
+          <view class='panel-content-subTitle'>
+            <text>规格： </text>
+            <text>600x600x14mm</text>
+          </view>
+          <view class='panel-content-price'>
+            <text>￥</text>
+            <text style='font-size:33rpx;'>8000</text>.
+            <text>00</text>
+          </view>
+        </view>
+        <view class='panel-content-num'>
+          <text style='color:#999999;margin-right:13rpx;'>数量：</text>
+          <text style='color:#f23030;'>5</text>
+        </view>
+      </view>
+    </view> -->
+
+    <view class="panel">
+
+      <block wx:for="{{data.Item}}" wx:key="{{indexItem}}">
+        <block wx:if="{{item.itemType==5}}">
+          <view class='panel-sec panel-container'>
+            <view class='panel-con-title'>【套餐】{{item.perty}}</view>
+
+            <block wx:for="{{item.PackItem}}" wx:key="{{indexItem}}">
+              <view class='panel-content'>
+                <image class='panel-content-img' src='{{item.dir+item.imgName}}'></image>
+                <view class='panel-content-right'>
+                  <view class='panel-content-title'>{{item.itemName}}</view>
+                  <view class='panel-content-subTitle'>
+                    <text>{{item.perty}}</text>
+                  </view>
+                  <view class='panel-content-price'>
+                    <text>￥</text>
+                    <text style='font-size:33rpx;'>{{item.price}}</text>
+                  </view>
+                </view>
+                <view class='panel-content-num'>
+                  <text style='color:#999999;margin-right:13rpx;'>数量：</text>
+                  <text style='color:#f23030;'>{{item.num}}</text>
+                </view>
+              </view>
+            </block>
+
+
+            <view class='panel-con-footer'>
+              套餐价：{{item.price}}×{{item.buyCount}}
+            </view>
+          </view>
+        </block>
+
+
+        <block wx:else>
+          <view class='panel-container'>
+            <view class='panel-content'>
+              <image class='panel-content-img' src='{{item.dir+item.imgName}}'></image>
+              <view class='panel-content-right'>
+                <view class='panel-content-title'>{{item.itemName}}</view>
+                <view class='panel-content-subTitle'>
+                  <text>{{item.perty}}</text>
+                </view>
+                <view class='panel-content-price'>
+                  <text>￥</text>
+                  <text style='font-size:33rpx;'>{{item.price}}</text>
+                </view>
+              </view>
+              <view class='panel-content-num'>
+                <text style='color:#999999;margin-right:13rpx;'>数量：</text>
+                <text style='color:#f23030;'>{{item.buyCount}}</text>
+              </view>
+            </view>
+          </view>
+
+
+
+        </block>
+
+
+
+      </block>
+
+
+
+      <!-- <view class='panel-footer'>
+          <view class='panel-footer-content'>
+            <view class='totalNum'>共计{{item.num}}件商品</view>
+            <view class='totalPrice'>合计：￥{{item.ordercoin}}（含运费{{item.postcoin}}）</view>
+          </view>
+        </view> -->
+
+      <!-- <view class='panel-bottom'>
+          <block wx:if="{{item.orderState==-1}} ">
+            <view class='orderOperation'>已失效</view>
+          </block>
+          <block wx:if="{{item.orderState==0}} ">
+            <view class='orderOperation' bindtap='pay'>立即支付</view>
+          </block>
+          <block wx:if="{{item.orderState==1}} ">
+            <view class='orderOperation'>待发货</view>
+          </block>
+          <block wx:if="{{item.orderState==2}} ">
+            <view class='orderOperation'>待发货</view>
+          </block>
+          <block wx:if="{{item.orderState==2}} ">
+            <view class='orderOperation'>已发货</view>
+          </block>
+          <block wx:if="{{item.orderState==4}} ">
+            <view class='orderOperation'>已完成</view>
+          </block>
+        </view> -->
+    </view>
+
+
+    <view class='bill-cell-group'>
+      <view class='bill-cell'>
+        <view class='bill-cell-left'>
+          <view class='bill-cell-text'>订单编号：</view>
+        </view>
+        <view class='bill-cell-right'>{{data.orderNo}}</view>
+        <view class='bill-cell-btn' bindtap='fuZhi' data-des='{{data.orderNo}}'>复制</view>
+      </view>
+      <view class='bill-cell'>
+        <view class='bill-cell-left'>
+          <view class='bill-cell-text'>下单时间：</view>
+        </view>
+        <view class='bill-cell-right'>{{data.orderTime}}</view>
+      </view>
+      <block wx:if="{{data.Pay.payinfo}}">
+        <view class='bill-cell'>
+          <view class='bill-cell-left'>
+            <view class='bill-cell-text'>支付时间：</view>
+          </view>
+          <view class='bill-cell-right'>{{data.Pay.payinfo[0].paytime}}</view>
+        </view>
+        <view class='bill-cell'>
+          <view class='bill-cell-left'>
+            <view class='bill-cell-text'>支付方式：</view>
+          </view>
+          <view class='bill-cell-right'>{{data.Pay.payinfo[0].paymeth}}</view>
+        </view>
+      </block>
+
+    </view>
+    <block wx:if="{{data.wuLiu}}">
+      <view class='bill-cell-group bill-cell-footer'>
+        <view class='bill-cell'>
+          <view class='bill-cell-left'>
+            <view class='bill-cell-text'>物流信息：</view>
+          </view>
+          <view class='bill-cell-right'>{{data.wuLiu}}</view>
+          <view class='bill-cell-btn' bindtap='fuZhi' data-des='{{data.wuLiu}}'>复制</view>
+        </view>
+      </view>
+    </block>
+
+
+    <view class='freight-cell'>
+      <view class='freight-cell-left'>
+        <view class='freight-cell-text'>运费</view>
+      </view>
+      <view class='freight-cell-right'>
+        <block wx:if="{{data.selfGet}} ">
+          <text>自提</text>
+        </block>
+        <block wx:else>
+          <text>￥</text>
+          <text>{{data.postcoin}}</text>
+        </block>
+      </view>
+    </view>
+    <block wx:if="{{coll.ID>0}}">
+      <view class='freight-cell'>
+        <view class='freight-cell-left'>
+          <view class='freight-cell-text'>优惠券</view>
+        </view>
+        <view class='freight-cell-right'>
+          <block wx:if="{{coll.usetp==1}}">
+            <view class='cell-right cF10215' bindtap='youHuiMaTap'>满减，满：{{coll.usemin}}，减{{coll.coin}}</view>
+          </block>
+          <block wx:if="{{coll.usetp==2}}">
+            <view class='cell-right cF10215' bindtap='youHuiMaTap'>折扣，金额：{{coll.coin}}</view>
+          </block>
+          <block wx:if="{{coll.usetp==3}}">
+            <view class='cell-right cF10215' bindtap='youHuiMaTap'>打折：{{coll.usemin}}折</view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <view class='totalPrice-cell'>
+      <view class='totalPrice-cell-con'>
+        <view class='totalPrice-cell-left'>
+          <view class='totalPrice-cell-text'>总商品金额</view>
+        </view>
+        <view class='totalPrice-cell-right'>
+          <text>￥</text>
+          <text>{{data.ordercoin}}</text>
+        </view>
+      </view>
+
+      <!-- <view class='totalPrice-cell-count'>
+        <text>（</text>
+        <text>2</text>
+        <text>件商品）</text>
+      </view> -->
+    </view>
+
+    <view class='freight-cell'>
+      <view class='freight-cell-left remark'>
+        <view class='freight-cell-text'>备注</view>
+      </view>
+      <block wx:if="{{data.msg}} ">
+        <view class='freight-cell-right remark'>{{data.msg}}</view>
+      </block>
+      <block wx:else>
+        <view class='freight-cell-right remark'>无</view>
+      </block>
+    </view>
+  </view>
+  <view class='bottom-box'>
+    <view class='bottom-box-btn-left' bindtap='delOrder' data-id='{{data.ID}}'>删除订单</view>
+
+    <block wx:if="{{data.orderState==-1}}">
+      <view class='bottom-box-btn'>已失效</view>
+    </block>
+    <block wx:if="{{data.orderState==0}}">
+      <view class='bottom-box-btn' bindtap='pay'>立即支付</view>
+    </block>
+    <block wx:if="{{data.orderState==1}}">
+      <view class='bottom-box-btn'>待发货</view>
+    </block>
+    <block wx:if="{{data.orderState==2}}">
+      <view class='bottom-box-btn'>待发货</view>
+    </block>
+    <block wx:if="{{data.orderState==3}}">
+      <view class='bottom-box-btn' bindtap='pingJiaTap'>去评价</view>
+    </block>
+    <block wx:if="{{data.orderState==4}}">
+      <view class='bottom-box-btn'>已完成</view>
+    </block>
+
+  </view>
+</block>
+<block wx:else>
+</block>

@@ -1,0 +1,46 @@
+/* pages/myBill/myBill.wxss */
+view{
+  box-sizing: border-box;
+}
+.billDate{
+  width: 100%;
+  height: 84rpx;
+  line-height: 84rpx;
+  padding: 0 0 0 30rpx;
+  font-size: 29rpx;
+  color: #666666;
+}
+.billList{
+  width: 100%;
+  height: 110rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+  border-top: 1rpx solid #ddd;
+  display: flex;
+  align-items: center;
+}
+.billList-content{
+  width: 100%;
+}
+.bill-img{
+  width: 52rpx;
+  height: 52rpx;
+}
+.billList-content-right{
+  display: inline-block;
+}
+.billList-content-title{
+  font-size: 25rpx;
+  color: #333333;
+}
+.billList-content-date{
+  font-size: 25rpx;
+  color: #999999;
+  /* margin-top: 10rpx; */
+}
+.billList-content-value{
+  float: right;
+  color: #F23030;
+  font-size: 33rpx;
+  margin-top: 15rpx;
+}

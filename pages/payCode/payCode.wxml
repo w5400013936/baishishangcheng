@@ -1,0 +1,20 @@
+<!--pages/payCode/payCode.wxml-->
+<view class='pay-header'>
+  <view class='paySum'>订单支付金额</view>
+  <view class='paySum-price'>{{createOrder.data}}</view>
+</view>
+<view class='pay-cell'>
+  <view class='pay-cell-left'>订单编号</view>
+  <view class='pay-cell-right'>{{orderNo}}</view>
+</view>
+<view class='QRcode-box'>
+  <!-- <image class='QRcode-img' src='{{qrcode}}'></image> -->
+  <canvas class='QRcode-img' canvas-id='canvas'></canvas>
+</view>
+<view class='pay-footer'>
+  <view>温馨提示：为了不耽误您的订单发货进度，请您到百石商城前台出示此付款凭证码进行支付操作。</view>
+  <view>
+    如有疑问请致电客服热线：
+    <text class='pay-footer-text'>400-100-9093</text>
+  </view>
+</view>

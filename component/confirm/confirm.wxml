@@ -1,0 +1,11 @@
+<!--component/confirm.wxml-->
+<block wx:if='{{show}}'>
+  <view class='confirm-box'>
+    <view class="confirm-title">{{ title }}</view>
+    <view class='confirm-bottom'>
+      <button bindtap='handleConfirmHide'>取消</button>
+      <button class='confirm-submit' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">确定</button>
+    </view>
+  </view>
+  <view class='confirm-shadow'></view>
+</block>
